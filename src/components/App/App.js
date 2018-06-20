@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-// import StarList from '../CurrentNewStar/CurrentNewStar';
+import Header from '../Header/Header';
+import CurrentNewStar from '../CurrentNewStar/CurrentNewStar';
+import StarList from '../StarList/StarList';
+import NewStarForm from '../NewStarForm/NewStarForm';
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -9,10 +14,11 @@ class App extends Component {
       star: {
         name: '',
         role: '',
+        show: '',
       }, 
       starList: [
-        { name: 'Sarah Michelle Gellar', role: 'Buffy Summers in BtVS'},
-        { name: 'Alyson Hannigan', role: 'Willow Rosenberg in BtVS'}
+        { name: 'Sarah Michelle Gellar', role: 'Buffy Summers', show: 'Buffy the Vampire Slayer'},
+        { name: 'Alyson Hannigan', role: 'Willow Rosenberg', show: 'Buffy the Vampire Slayer'}
       ],
     };
 
@@ -35,6 +41,7 @@ class App extends Component {
       star: {
         name: '',
         role: '',
+        show: '',
       },
       starList: [...this.state.starList, this.state.star],
     });
@@ -43,23 +50,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Famous People</h1>
-        </header>
-        <form onSubmit={this.handleSubmit}>
-          <input value={this.state.star.name} onChange={this.handleChangeFor('name')} placeholder="Name" />
-          <input value={this.state.star.role} onChange={this.handleChangeFor('role')} placeholder="Role" />
-          <input type="submit" value="Add Star" />
-        </form>
-        <ul>
-          {
-            this.state.starList.map(star => <li key={star.name}>
-              {star.name} is famous for portraying {star.role}
-              </li>)
-          }
-        </ul>
+        <Header />
+        <CurrentNewStar newStar={this.state.star} />
+        <NewStarForm newStar={this.state.star} handleChangeFor={this.handleChangeFor} handleSubmit={this.handleSubmit}/>
+        <StarList starList={this.state.starList} />
+        
       </div>
-    );
+    )
   }
 }
 

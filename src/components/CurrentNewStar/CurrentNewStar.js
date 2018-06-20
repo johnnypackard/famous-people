@@ -1,19 +1,14 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
 
-// class StarList extends Component {
-//     render() {
-//         return (
-//             <ul>
-//                 {
-//                     this.props.starList.map(star => (
-//                         <li key={star.name}>
-//                         {star.name} is famous for portraying {star.role}
-//                         </li>
-//                     ))
-//                 }
-//             </ul>
-//         );
-//     }
-// }
+class CurrentNewStar extends Component {
+    render() {
+        return (
+            <div>
+                <h2>Add a new star to your list!</h2>
+                <p>{this.props.newStar.name} portrayed {this.props.newStar.role} in {this.props.newStar.show}</p>
+            </div>
+        );
+    }
+}
 
-// export default StarList;
+export default CurrentNewStar;
