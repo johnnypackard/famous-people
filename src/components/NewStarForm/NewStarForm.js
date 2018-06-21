@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NewStarForm.css';
 class NewStarForm extends Component {
 
   render() {
