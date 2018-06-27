@@ -8,12 +8,12 @@ class StarList extends Component {
                 {
                     this.props.starList.map(star => (
                         <li key={star.name}>
-                        {star.name} was {star.role} in {star.show}
-                    </li>
+                            {star.name} was {star.role} in {star.show}
+                        </li>
                     ))
                 }
             </ul>
-        );
+        )
     }
 }
 
